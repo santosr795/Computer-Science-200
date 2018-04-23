@@ -20,35 +20,36 @@ public class FruitStand {
 	Scanner keyboard = new Scanner(System.in);
 	
 	String amountMessage ="Enter the Amount of ";
-	String message; 
+	String message, fruit;
 	int amountFruits;
+	do {
+	System.out.println("Enter the Fruit you want to buy: Mangos, Bananas, Apples");
+	 fruit = keyboard.nextLine();
 	
-	System.out.println("Enter the Fruit you would like to buy");
-	String fruit = keyboard.nextLine();
-	
-	if(fruit.equals("Mangos")) {
+	if(fruit.equalsIgnoreCase("Mangos")) {
 		System.out.print(amountMessage + fruit + " You Want");
 		amountFruits = keyboard.nextInt();
 		double product = (double)amountFruits * .5;//The (double)is type cast you are basically just converting int into a double.
 		message = "Your Total is " + product +  " $ for " + amountFruits + " Mangos"; 
 		
 	}
-	else if (fruit.equals("Bananas")) {
+	else if (fruit.equalsIgnoreCase("Bananas")) {
 		System.out.print(amountMessage + fruit + " You Want");
 		amountFruits = keyboard.nextInt();
 		double product = amountFruits * .4;
 		message = "Your Total is " + product +  " $ For" + amountFruits + " Bananas"; 
 	}
-	else if(fruit.equals("Apples")) {
+	else if(fruit.equalsIgnoreCase("Apples")) {
 		System.out.print(amountMessage + fruit + "You Want");
 		amountFruits = keyboard.nextInt();
 		double product = amountFruits * .3;
 		message = "Your Total is " + product +  " $ For " + amountFruits + " Apples"; 
 	}
 	else {
-		message = "Error Fruit not Found"; 
-		
+		message = "Error Fruit not Found";
 	}
+		
+	}while(!fruit.equalsIgnoreCase("Bananas") && !fruit.equalsIgnoreCase("Apples") && !fruit.equalsIgnoreCase("Mangos") );  
 System.out.print(message);
 }
 }
